@@ -64,21 +64,19 @@ var start = function() {
 			for (i = 1; i <= 6; i++) {
 				if (v[i] === 5) {
 					alert("You rolled five of a kind, " + i + "'s!");
-				} else {
-					return false;
+					return true;
 				}
-				return true;
 			}
+			return false;
 		};
 		var fourOfKind = function() {
 			for (i = 1; i <= 6; i++) {
 				if (v[i] === 4) {
 					alert("You rolled four of a kind, " + i + "'s!");
-				} else {
-					return false;
+					return true;
 				}
-				return true;
 			}
+			return false;
 		};
 		var threeOfKind = function() {
 			for (i = 1; i <= 6; i++) {
@@ -86,15 +84,15 @@ var start = function() {
 					if (v[i] === 3) {
 						if(v[j] === 2 && i != j) {
 							alert("You rolled a full house, " + i + "'s and " + j + "'s!");
+							return true;
 						} else {
 							alert("You rolled three of a kind, " + i + "'s!");
+							return true;
 						}
-					} else {
-						return false;
 					}
 				}
-				return true;
 			}
+			return false;
 		};
 		var twoOfKind = function() {
 			for (i = 1; i <= 6; i++) {
@@ -102,15 +100,15 @@ var start = function() {
 					if (v[i] === 2) {
 						if (v[j] === 2) {
 							alert("You rolled a pair of, " + i + "'s and a pair of " + j + "'s!");
+							return true;
 						} else {
 							alert("You rolled a pair of, " + i + "'s!");
+							return true;
 						}
-					} else {
-						return false;
 					}
 				}
-				return true;
 			}
+			return false;
 		};
 		var found = straight();
 		if(!found) {
