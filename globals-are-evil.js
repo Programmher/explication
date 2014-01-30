@@ -41,3 +41,6 @@ var washClothes = function() {
   }
   return true; 
 };
+
+startmining();
+console.log("I mined "+coalbin.length+" pieces of coal from that bad ol' mountain!");
