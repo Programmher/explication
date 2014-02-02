@@ -37,6 +37,7 @@ var getMatches = function() {
 			} else if (j === 6) {
 				value[j] = sameNumbers;
 			}
+	}
 };
 var getAmount = function() {
 	var value = [];
