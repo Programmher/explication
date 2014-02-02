@@ -39,6 +39,7 @@ var getMatches = function() {
 			value[j] = sameNumbers;
 		}
 	}
+	return value;
 };
 var getAmount = function() {
 	var v = [];
