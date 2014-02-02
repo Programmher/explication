@@ -1,4 +1,3 @@
-var value = [];
 var checkResults = function(l, dice) {
 	var sameNumbers = [];
 	var duplicates = dice.indexOf(l);
@@ -19,7 +18,10 @@ var rollDice = function(n, d) {
 	 	diceResults(n);
 	 	dice.push(diceResults(n));
 	 }
- 	//make this a while loop for n
+	 return dice;
+};
+var getMatches = function() {
+	//make this a while loop for n
  	for (var j = 1; j <=6; j++) {
 			var sameNumbers = checkResults(j, dice);
 			if (j === 1) {
@@ -35,12 +37,11 @@ var rollDice = function(n, d) {
 			} else if (j === 6) {
 				value[j] = sameNumbers;
 			}
-	}
- 	return dice;
 };
 var getAmount = function() {
+	var value = [];
 	var v = [];
-	var getLength = function() {
+	var getLength = function(value) {
 		for (i = 1; i < value.length; i++)
 		v[i] = value[i].length;
 	};
@@ -131,12 +132,12 @@ var start = function() {
 		var name2 = prompt("Player 2, please enter YOUR name.","Enter name here");
 		var roll1 = rollDice(6, 5);
 		//figure out name1, name2 placement
- 		console.log(name + ", you have rolled " + dice.join(" ") + ".");
-		getAmount();
+ 		console.log(name + ", you have rolled " + roll1.join(" ") + ".");
+		getAmount(value);
 		var roll2 = rollDice(6, 5);
 		//figure out name1, name2 placement
- 		console.log(name + ", you have rolled " + dice.join(" ") + ".");
-		getAmount();
+ 		console.log(name + ", you have rolled " + roll2.join(" ") + ".");
+		getAmount(value);
 	} else {
 		alert("Aw, well, come back when you're ready!");
 	}
