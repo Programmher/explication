@@ -21,26 +21,26 @@ var rollDice = function(n, d) {
 	 return dice;
 };
 var getMatches = function() {
+	var value = [];
 	//make this a while loop for n
  	for (var j = 1; j <=6; j++) {
-			var sameNumbers = checkResults(j, dice);
-			if (j === 1) {
-				value[j] = sameNumbers;
-			} else if (j === 2) {
-				value[j] = sameNumbers;
-			} else if (j === 3) {
-				value[j] = sameNumbers;
-			} else if (j === 4) {
-				value[j] = sameNumbers;
-			} else if (j === 5) {
-				value[j] = sameNumbers;
-			} else if (j === 6) {
-				value[j] = sameNumbers;
-			}
+		var sameNumbers = checkResults(j, dice);
+		if (j === 1) {
+			value[j] = sameNumbers;
+		} else if (j === 2) {
+			value[j] = sameNumbers;
+		} else if (j === 3) {
+			value[j] = sameNumbers;
+		} else if (j === 4) {
+			value[j] = sameNumbers;
+		} else if (j === 5) {
+			value[j] = sameNumbers;
+		} else if (j === 6) {
+			value[j] = sameNumbers;
+		}
 	}
 };
 var getAmount = function() {
-	var value = [];
 	var v = [];
 	var getLength = function(value) {
 		for (i = 1; i < value.length; i++)
@@ -134,10 +134,12 @@ var start = function() {
 		var roll1 = rollDice(6, 5);
 		//figure out name1, name2 placement
  		console.log(name + ", you have rolled " + roll1.join(" ") + ".");
+ 		getMatches();
 		getAmount(value);
 		var roll2 = rollDice(6, 5);
 		//figure out name1, name2 placement
  		console.log(name + ", you have rolled " + roll2.join(" ") + ".");
+ 		getMatches();
 		getAmount(value);
 	} else {
 		alert("Aw, well, come back when you're ready!");
