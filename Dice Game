@@ -1,138 +1,141 @@
 var value = [];
+var checkResults = function(l, dice) {
+	var sameNumbers = [];
+	var duplicates = dice.indexOf(l);
+	while(duplicates != -1) {
+		sameNumbers.push(duplicates);
+		duplicates = dice.indexOf(l, duplicates + 1);
+	}
+	return sameNumbers;
+};
+var rollDice = function(n, d) {
+	var dice = [];
+	var diceResults = function(n) {
+ 	var number = Math.floor(Math.random() * n) + 1;
+ 	return number;
+	};
+ 	for (var i = 1; i <= d; i++) {
+	 	i;
+	 	diceResults(n);
+	 	dice.push(diceResults(n));
+	 }
+ 	//make this a while loop for n
+ 	for (var j = 1; j <=6; j++) {
+			var sameNumbers = checkResults(j, dice);
+			if (j === 1) {
+				value[j] = sameNumbers;
+			} else if (j === 2) {
+				value[j] = sameNumbers;
+			} else if (j === 3) {
+				value[j] = sameNumbers;
+			} else if (j === 4) {
+				value[j] = sameNumbers;
+			} else if (j === 5) {
+				value[j] = sameNumbers;
+			} else if (j === 6) {
+				value[j] = sameNumbers;
+			}
+	}
+ 	return dice;
+};
+var getAmount = function() {
+	var v = [];
+	var getLength = function() {
+		for (i = 1; i < value.length; i++)
+		v[i] = value[i].length;
+	};
+	getLength();
+	var straight = function() {
+	 	if (v[1] === 1 && v[2] === 1 && v[3] === 1 && v[4] === 1 && v[5] === 1) {
+	 		alert("You rolled a low straight!");
+	 	} else if (v[2] === 1 && v[3] === 1 && v[4] === 1 && v[5] === 1 && v[6] === 1) {
+	 		alert("You rolled a high straight!");
+		} else {
+			return false;
+		}
+		return true;
+	};
+	var fiveOfKind = function() {
+		for (i = 1; i <= 6; i++) {
+			if (v[i] === 5) {
+				alert("You rolled five of a kind, " + i + "'s!");
+				return true;
+			}
+		}
+		return false;
+	};
+	var fourOfKind = function() {
+		for (i = 1; i <= 6; i++) {
+			if (v[i] === 4) {
+				alert("You rolled four of a kind, " + i + "'s!");
+				return true;
+			}
+		}
+		return false;
+	};
+	var threeOfKind = function() {
+		for (i = 1; i <= 6; i++) {
+			for (j = 1; j <= 6; j++) {
+				if (v[i] === 3) {
+					if(v[j] === 2 && i != j) {
+						alert("You rolled a full house, " + i + "'s and " + j + "'s!");
+						return true;
+					} else {
+						alert("You rolled three of a kind, " + i + "'s!");
+						return true;
+					}
+				}
+			}
+		}
+		return false;
+	};
+	var twoOfKind = function() {
+		for (i = 1; i <= 6; i++) {
+			for (j = i + 1; j <= 6; j++) {
+				if (v[i] === 2) {
+					if (v[j] === 2) {
+						alert("You rolled a pair of, " + i + "'s and a pair of " + j + "'s!");
+						return true;
+					} else {
+						alert("You rolled a pair of, " + i + "'s!");
+						return true;
+					}
+				}
+			}
+		}
+		return false;
+	};
+	var found = straight();
+	if(!found) {
+		found = fiveOfKind();
+	}
+	if(!found) {
+		found = fourOfKind();
+	}
+	if(!found) {
+		found = threeOfKind();
+	}
+	if(!found) {
+		found = twoOfKind();
+	}
+	if(!found) {
+		alert("You have rolled nothing! Try your luck again!");
+	}
 var start = function() {
 	var player1 = confirm("Player 1, are you ready to play?");
 	var player2 = confirm("Player 2, are you ready to play?");
 	//can I remove rollDice and getAmount from start and have it still work?
-	var rollDice = function(n, d) {
-		var dice = [];
-		var diceResults = function(n) {
- 		var number = Math.floor(Math.random() * n) + 1;
- 		return number;
-		};
-		var checkResults = function(l) {
-			var sameNumbers = [];
-			var duplicates = dice.indexOf(l);
-			while(duplicates != -1) {
-				sameNumbers.push(duplicates);
-				duplicates = dice.indexOf(l, duplicates + 1);
-			}
-			return sameNumbers;
-		};
-	 	for (var i = 1; i <= d; i++) {
-		 	i;
-		 	diceResults(n);
-		 	dice.push(diceResults(n));
-		 }
-	 	//make this a while loop for n
-	 	for (var j = 1; j <=6; j++) {
-				var sameNumbers = checkResults(j);
-				if (j === 1) {
-					value[j] = sameNumbers;
-				} else if (j === 2) {
-					value[j] = sameNumbers;
-				} else if (j === 3) {
-					value[j] = sameNumbers;
-				} else if (j === 4) {
-					value[j] = sameNumbers;
-				} else if (j === 5) {
-					value[j] = sameNumbers;
-				} else if (j === 6) {
-					value[j] = sameNumbers;
-				}
-		}
-	 	//figure out name1, name2 placement
-	 	console.log(name + ", you have rolled " + dice.join(" ") + ".");
-	};
-	var getAmount = function() {
-		var v = [];
-		var getLength = function() {
-			for (i = 1; i < value.length; i++)
-			v[i] = value[i].length;
-		};
-		getLength();
-		var straight = function() {
-		 	if (v[1] === 1 && v[2] === 1 && v[3] === 1 && v[4] === 1 && v[5] === 1) {
-		 		alert("You rolled a low straight!");
-		 	} else if (v[2] === 1 && v[3] === 1 && v[4] === 1 && v[5] === 1 && v[6] === 1) {
-		 		alert("You rolled a high straight!");
-			} else {
-				return false;
-			}
-			return true;
-		};
-		var fiveOfKind = function() {
-			for (i = 1; i <= 6; i++) {
-				if (v[i] === 5) {
-					alert("You rolled five of a kind, " + i + "'s!");
-					return true;
-				}
-			}
-			return false;
-		};
-		var fourOfKind = function() {
-			for (i = 1; i <= 6; i++) {
-				if (v[i] === 4) {
-					alert("You rolled four of a kind, " + i + "'s!");
-					return true;
-				}
-			}
-			return false;
-		};
-		var threeOfKind = function() {
-			for (i = 1; i <= 6; i++) {
-				for (j = 1; j <= 6; j++) {
-					if (v[i] === 3) {
-						if(v[j] === 2 && i != j) {
-							alert("You rolled a full house, " + i + "'s and " + j + "'s!");
-							return true;
-						} else {
-							alert("You rolled three of a kind, " + i + "'s!");
-							return true;
-						}
-					}
-				}
-			}
-			return false;
-		};
-		var twoOfKind = function() {
-			for (i = 1; i <= 6; i++) {
-				for (j = i + 1; j <= 6; j++) {
-					if (v[i] === 2) {
-						if (v[j] === 2) {
-							alert("You rolled a pair of, " + i + "'s and a pair of " + j + "'s!");
-							return true;
-						} else {
-							alert("You rolled a pair of, " + i + "'s!");
-							return true;
-						}
-					}
-				}
-			}
-			return false;
-		};
-		var found = straight();
-		if(!found) {
-			found = fiveOfKind();
-		}
-		if(!found) {
-			found = fourOfKind();
-		}
-		if(!found) {
-			found = threeOfKind();
-		}
-		if(!found) {
-			found = twoOfKind();
-		}
-		if(!found) {
-			alert("You have rolled nothing! Try your luck again!");
-		}
 	};
 	if (player1 && player2) {
 		var name1 = prompt("Alright! Player 1, please enter your name.","Enter name here");
 		var name2 = prompt("Player 2, please enter YOUR name.","Enter name here");
 		var roll1 = rollDice(6, 5);
+		//figure out name1, name2 placement
+ 		console.log(name + ", you have rolled " + dice.join(" ") + ".");
 		getAmount();
 		var roll2 = rollDice(6, 5);
+		//figure out name1, name2 placement
+ 		console.log(name + ", you have rolled " + dice.join(" ") + ".");
 		getAmount();
 	} else {
 		alert("Aw, well, come back when you're ready!");
