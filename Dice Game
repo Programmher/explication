@@ -7,12 +7,12 @@ var checkResults = function(l, dice) {
 	}
 	return sameNumbers;
 };
-var rollDice = function(n, d) {
-	var dice = [];
-	var diceResults = function(n) {
+var diceResults = function(n) {
  	var number = Math.floor(Math.random() * n) + 1;
  	return number;
-	};
+};
+var rollDice = function(n, d) {
+	var dice = [];
  	for (var i = 1; i <= d; i++) {
 	 	i;
 	 	diceResults(n);
@@ -128,7 +128,6 @@ var getAmount = function(value) {
 var start = function() {
 	var player1 = confirm("Player 1, are you ready to play?");
 	var player2 = confirm("Player 2, are you ready to play?");
-	//can I remove rollDice and getAmount from start and have it still work?
 	if (player1 && player2) {
 		var name1 = prompt("Alright! Player 1, please enter your name.","Enter name here");
 		var name2 = prompt("Player 2, please enter YOUR name.","Enter name here");
