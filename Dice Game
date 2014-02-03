@@ -21,7 +21,7 @@ var rollDice = function(n, d) {
 var getMatches = function(dice) {
 	var value = [];
 	//make this a while loop for n
- 	for (var j = 1; j <=6; j++) {
+ 	for (var j = 1; j <=dice.length; j++) {
 		var sameNumbers = checkResults(j, dice);
 		value[j] = sameNumbers;
 	}
