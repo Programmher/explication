@@ -20,7 +20,7 @@ var rollDice = function(n, d) {
 	 }
 	 return dice;
 };
-var getMatches = function() {
+var getMatches = function(dice) {
 	var value = [];
 	//make this a while loop for n
  	for (var j = 1; j <=6; j++) {
@@ -135,12 +135,12 @@ var start = function() {
 		var roll1 = rollDice(6, 5);
 		//figure out name1, name2 placement
  		console.log(name + ", you have rolled " + roll1.join(" ") + ".");
- 		var value = getMatches();
+ 		var value = getMatches(roll1);
 		getAmount(value);
 		var roll2 = rollDice(6, 5);
 		//figure out name1, name2 placement
  		console.log(name + ", you have rolled " + roll2.join(" ") + ".");
- 		var value = getMatches();
+ 		var value = getMatches(roll2);
 		getAmount(value);
 	} else {
 		alert("Aw, well, come back when you're ready!");
