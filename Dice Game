@@ -41,9 +41,10 @@ var getMatches = function(dice) {
 };
 var getLength = function(value) {
 	var v = [];
-	for (i = 1; i < value.length; i++)
-	v[i] = value[i].length;
-	return v;
+	for (i = 1; i < value.length; i++) {
+		v[i] = value[i].length;
+		return v;
+	}
 };
 var getAmount = function(v) {
 	var straight = function() {
