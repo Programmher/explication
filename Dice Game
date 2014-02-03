@@ -14,7 +14,6 @@ var diceResults = function(n) {
 var rollDice = function(n, d) {
 	var dice = [];
  	for (var i = 1; i <= d; i++) {
-	 	i;
 	 	diceResults(n);
 	 	dice.push(diceResults(n));
 	 }
