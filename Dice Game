@@ -39,13 +39,13 @@ var getMatches = function(dice) {
 	}
 	return value;
 };
-var getAmount = function(value) {
+var getLength = function(value) {
 	var v = [];
-	var getLength = function(value) {
-		for (i = 1; i < value.length; i++)
-		v[i] = value[i].length;
-	};
-	getLength(value);
+	for (i = 1; i < value.length; i++)
+	v[i] = value[i].length;
+	return v;
+};
+var getAmount = function(v) {
 	var straight = function() {
 	 	if (v[1] === 1 && v[2] === 1 && v[3] === 1 && v[4] === 1 && v[5] === 1) {
 	 		alert("You rolled a low straight!");
@@ -133,12 +133,14 @@ var start = function() {
 		//figure out name1, name2 placement
  		console.log(name + ", you have rolled " + roll1.join(" ") + ".");
  		var value = getMatches(roll1);
-		getAmount(value);
+ 		var v = getLength(value);
+		getAmount(v);
 		var roll2 = rollDice(6, 5);
 		//figure out name1, name2 placement
  		console.log(name + ", you have rolled " + roll2.join(" ") + ".");
  		var value = getMatches(roll2);
-		getAmount(value);
+ 		var v = getLength(value);
+		getAmount(v);
 	} else {
 		alert("Aw, well, come back when you're ready!");
 	}
