@@ -41,7 +41,7 @@ var getMatches = function() {
 	}
 	return value;
 };
-var getAmount = function() {
+var getAmount = function(value) {
 	var v = [];
 	var getLength = function(value) {
 		for (i = 1; i < value.length; i++)
