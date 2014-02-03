@@ -23,9 +23,7 @@ var getMatches = function(dice) {
 	//make this a while loop for n
  	for (var j = 1; j <=6; j++) {
 		var sameNumbers = checkResults(j, dice);
-		if (true) {
-			value[j] = sameNumbers;
-		}
+		value[j] = sameNumbers;
 	}
 	return value;
 };
