@@ -118,28 +118,20 @@ var start = function() {
 	if (player1 && player2) {
 		var name1 = prompt("Alright! Player 1, please enter your name.","Enter name here");
 		var name2 = prompt("Player 2, please enter YOUR name.","Enter name here");
-		var roll1 = rollDice(6, 5);
-		//figure out name1, name2 placement
- 		console.log(name + ", you have rolled " + roll1.join(" ") + ".");
- 		var value = getMatches(roll1);
- 		var v = getLength(value);
- 		straight(v);
- 		fiveOfKind(v);
- 		fourOfKind(v);
- 		threeOfKind(v);
- 		twoOfKind(v);
-		getAmount();
-		var roll2 = rollDice(6, 5);
-		//figure out name1, name2 placement
- 		console.log(name + ", you have rolled " + roll2.join(" ") + ".");
- 		var value = getMatches(roll2);
- 		var v = getLength(value);
- 		straight(v);
- 		fiveOfKind(v);
- 		fourOfKind(v);
- 		threeOfKind(v);
- 		twoOfKind(v);
-		getAmount();
+		for (var i = 1; i <= roll.length; i++) {
+			var roll = [];
+			roll[i] = rollDice(6, 5);
+			//figure out name1, name2 placement
+	 		console.log(name + ", you have rolled " + roll[i].join(" ") + ".");
+	 		var value = getMatches(roll[i]);
+	 		var v = getLength(value);
+	 		straight(v);
+	 		fiveOfKind(v);
+	 		fourOfKind(v);
+	 		threeOfKind(v);
+	 		twoOfKind(v);
+			getAmount();
+		}
 	} else {
 		alert("Aw, well, come back when you're ready!");
 	}
