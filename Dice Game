@@ -34,67 +34,67 @@ var getLength = function(value) {
 	}
 	return v;
 };
-var getAmount = function(v) {
-	var straight = function() {
-	 	if (v[1] === 1 && v[2] === 1 && v[3] === 1 && v[4] === 1 && v[5] === 1) {
-	 		alert("You rolled a low straight!");
-	 	} else if (v[2] === 1 && v[3] === 1 && v[4] === 1 && v[5] === 1 && v[6] === 1) {
-	 		alert("You rolled a high straight!");
-		} else {
-			return false;
-		}
-		return true;
-	};
-	var fiveOfKind = function() {
-		for (i = 1; i <= 6; i++) {
-			if (v[i] === 5) {
-				alert("You rolled five of a kind, " + i + "'s!");
-				return true;
-			}
-		}
+var straight = function(v) {
+ 	if (v[1] === 1 && v[2] === 1 && v[3] === 1 && v[4] === 1 && v[5] === 1) {
+ 		alert("You rolled a low straight!");
+ 	} else if (v[2] === 1 && v[3] === 1 && v[4] === 1 && v[5] === 1 && v[6] === 1) {
+ 		alert("You rolled a high straight!");
+	} else {
 		return false;
-	};
-	var fourOfKind = function() {
-		for (i = 1; i <= 6; i++) {
-			if (v[i] === 4) {
-				alert("You rolled four of a kind, " + i + "'s!");
-				return true;
-			}
+	}
+	return true;
+};
+var fiveOfKind = function(v) {
+	for (i = 1; i <= 6; i++) {
+		if (v[i] === 5) {
+			alert("You rolled five of a kind, " + i + "'s!");
+			return true;
 		}
-		return false;
-	};
-	var threeOfKind = function() {
-		for (i = 1; i <= 6; i++) {
-			for (j = 1; j <= 6; j++) {
-				if (v[i] === 3) {
-					if(v[j] === 2 && i != j) {
-						alert("You rolled a full house, " + i + "'s and " + j + "'s!");
-						return true;
-					} else {
-						alert("You rolled three of a kind, " + i + "'s!");
-						return true;
-					}
+	}
+	return false;
+};
+var fourOfKind = function(v) {
+	for (i = 1; i <= 6; i++) {
+		if (v[i] === 4) {
+			alert("You rolled four of a kind, " + i + "'s!");
+			return true;
+		}
+	}
+	return false;
+};
+var threeOfKind = function(v) {
+	for (i = 1; i <= 6; i++) {
+		for (j = 1; j <= 6; j++) {
+			if (v[i] === 3) {
+				if(v[j] === 2 && i != j) {
+					alert("You rolled a full house, " + i + "'s and " + j + "'s!");
+					return true;
+				} else {
+					alert("You rolled three of a kind, " + i + "'s!");
+					return true;
 				}
 			}
 		}
-		return false;
-	};
-	var twoOfKind = function() {
-		for (i = 1; i <= 6; i++) {
-			for (j = i + 1; j <= 6; j++) {
-				if (v[i] === 2) {
-					if (v[j] === 2) {
-						alert("You rolled a pair of, " + i + "'s and a pair of " + j + "'s!");
-						return true;
-					} else {
-						alert("You rolled a pair of, " + i + "'s!");
-						return true;
-					}
+	}
+	return false;
+};
+var twoOfKind = function(v) {
+	for (i = 1; i <= 6; i++) {
+		for (j = i + 1; j <= 6; j++) {
+			if (v[i] === 2) {
+				if (v[j] === 2) {
+					alert("You rolled a pair of, " + i + "'s and a pair of " + j + "'s!");
+					return true;
+				} else {
+					alert("You rolled a pair of, " + i + "'s!");
+					return true;
 				}
 			}
 		}
-		return false;
-	};
+	}
+	return false;
+};
+var getAmount = function() {
 	var found = straight();
 	if(!found) {
 		found = fiveOfKind();
@@ -123,13 +123,23 @@ var start = function() {
  		console.log(name + ", you have rolled " + roll1.join(" ") + ".");
  		var value = getMatches(roll1);
  		var v = getLength(value);
-		getAmount(v);
+ 		straight(v);
+ 		fiveOfKind(v);
+ 		fourOfKind(v);
+ 		threeOfKind(v);
+ 		twoOfKind(v);
+		getAmount();
 		var roll2 = rollDice(6, 5);
 		//figure out name1, name2 placement
  		console.log(name + ", you have rolled " + roll2.join(" ") + ".");
  		var value = getMatches(roll2);
  		var v = getLength(value);
-		getAmount(v);
+ 		straight(v);
+ 		fiveOfKind(v);
+ 		fourOfKind(v);
+ 		threeOfKind(v);
+ 		twoOfKind(v);
+		getAmount();
 	} else {
 		alert("Aw, well, come back when you're ready!");
 	}
