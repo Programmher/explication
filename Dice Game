@@ -83,10 +83,10 @@ var twoOfKind = function(v) {
 		if (v[i] === 2) {
 			for (j = i + 1; j <= 6; j++) {
 				if (v[j] === 2) {
-					alert("You rolled a pair of, " + i + "'s and a pair of " + j + "'s!");
+					alert("You rolled a pair of " + i + "'s and a pair of " + j + "'s!");
 					return true;
 				} else {
-					alert("You rolled a pair of, " + i + "'s!");
+					alert("You rolled a pair of " + i + "'s!");
 					return true;
 				}
 			}
