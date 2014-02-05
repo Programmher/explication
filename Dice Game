@@ -69,10 +69,10 @@ var threeOfKind = function(v) {
 				if(v[j] === 2 && i != j) {
 					alert("You rolled a full house, " + i + "'s and " + j + "'s!");
 					return true;
-				} else {
-					alert("You rolled three of a kind, " + i + "'s!");
-					return true;
 				}
+			} else {
+				alert("You rolled three of a kind, " + i + "'s!");
+				return true;
 			}
 		}
 	}
@@ -85,10 +85,10 @@ var twoOfKind = function(v) {
 				if (v[j] === 2) {
 					alert("You rolled a pair of, " + i + "'s and a pair of " + j + "'s!");
 					return true;
-				} else {
+				}
+			} else {
 					alert("You rolled a pair of, " + i + "'s!");
 					return true;
-				}
 			}
 		}
 	}
