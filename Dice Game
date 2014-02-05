@@ -94,19 +94,19 @@ var twoOfKind = function(v) {
 	}
 	return false;
 };
-var getAmount = function() {
-	var found = straight();
+var getAmount = function(v) {
+	var found = straight(v);
 	if(!found) {
-		found = fiveOfKind();
+		found = fiveOfKind(v);
 	}
 	if(!found) {
-		found = fourOfKind();
+		found = fourOfKind(v);
 	}
 	if(!found) {
-		found = threeOfKind();
+		found = threeOfKind(v);
 	}
 	if(!found) {
-		found = twoOfKind();
+		found = twoOfKind(v);
 	}
 	if(!found) {
 		alert("You have rolled nothing! Try your luck again!");
@@ -127,12 +127,7 @@ var playGame = function() {
 	 		console.log(name[i] + ", you have rolled " + roll[i].join(" ") + ".");
 	 		var value = getMatches(roll[i]);
 	 		var v = getLength(value);
-	 		straight(v);
-	 		fiveOfKind(v);
-	 		fourOfKind(v);
-	 		threeOfKind(v);
-	 		twoOfKind(v);
-			getAmount();
+			getAmount(v);
 		}
 	} else {
 		alert("Aw, well, come back when you're ready!");
