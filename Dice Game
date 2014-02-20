@@ -69,11 +69,10 @@ var threeOfKind = function(v) {
 				if(v[j] === 2 && i != j) {
 					alert("You rolled a full house, " + i + "'s and " + j + "'s!");
 					return true;
-				} else {
-					alert("You rolled three of a kind, " + i + "'s!");
-					return true;
 				}
 			}
+			alert("You rolled three of a kind, " + i + "'s!");
+			return true;
 		}
 	}
 	return false;
@@ -85,11 +84,10 @@ var twoOfKind = function(v) {
 				if (v[j] === 2) {
 					alert("You rolled a pair of " + i + "'s and a pair of " + j + "'s!");
 					return true;
-				} else {
-					alert("You rolled a pair of " + i + "'s!");
-					return true;
 				}
 			}
+			alert("You rolled a pair of " + i + "'s!");
+			return true;
 		}
 	}
 	return false;
@@ -123,7 +121,6 @@ var playGame = function() {
 		var roll = [];
 		for (var i = 1; i <= 2; i++) {
 			roll[i] = rollDice(6, 5);
-			//figure out name1, name2 placement
 	 		console.log(name[i] + ", you have rolled " + roll[i].join(" ") + ".");
 	 		var value = getMatches(roll[i]);
 	 		var v = getLength(value);
