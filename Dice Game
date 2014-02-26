@@ -21,7 +21,7 @@ var rollDice = function(n, d) {
 var getMatches = function(dice) {
 	var value = [];
 	//make this a while loop for n
- 	for (var j = 1; j <=dice.length; j++) {
+ 	for (var j = 1; j <= dice.length + 1; j++) {
 		var sameNumbers = checkResults(j, dice);
 		value[j] = sameNumbers;
 	}
@@ -132,4 +132,4 @@ var playGame = function(numberOfSides, numberOfDice) {
 		alert("Aw, well, come back when you're ready!");
 	}
 };
-playGame(8, 7);
+playGame(6, 5);
