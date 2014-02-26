@@ -44,8 +44,8 @@ var straight = function(v) {
 	}
 	return true;
 };
-var fiveOfKind = function(v) {
-	for (i = 1; i <= 6; i++) {
+var fiveOfKind = function(v, n) {
+	for (i = 1; i <= n; i++) {
 		if (v[i] === 5) {
 			alert("You rolled five of a kind, " + i + "'s!");
 			return true;
@@ -53,8 +53,8 @@ var fiveOfKind = function(v) {
 	}
 	return false;
 };
-var fourOfKind = function(v) {
-	for (i = 1; i <= 6; i++) {
+var fourOfKind = function(v, n) {
+	for (i = 1; i <= n; i++) {
 		if (v[i] === 4) {
 			alert("You rolled four of a kind, " + i + "'s!");
 			return true;
@@ -62,10 +62,10 @@ var fourOfKind = function(v) {
 	}
 	return false;
 };
-var threeOfKind = function(v) {
-	for (i = 1; i <= 6; i++) {
+var threeOfKind = function(v, n) {
+	for (i = 1; i <= n; i++) {
 		if (v[i] === 3) {
-			for (j = 1; j <= 6; j++) {
+			for (j = 1; j <= n; j++) {
 				if(v[j] === 2 && i != j) {
 					alert("You rolled a full house, " + i + "'s and " + j + "'s!");
 					return true;
@@ -77,10 +77,10 @@ var threeOfKind = function(v) {
 	}
 	return false;
 };
-var twoOfKind = function(v) {
-	for (i = 1; i <= 6; i++) {
+var twoOfKind = function(v, n) {
+	for (i = 1; i <= n; i++) {
 		if (v[i] === 2) {
-			for (j = i + 1; j <= 6; j++) {
+			for (j = i + 1; j <= n; j++) {
 				if (v[j] === 2) {
 					alert("You rolled a pair of " + i + "'s and a pair of " + j + "'s!");
 					return true;
@@ -92,25 +92,25 @@ var twoOfKind = function(v) {
 	}
 	return false;
 };
-var getAmount = function(v) {
-	var found = straight(v);
+var getAmount = function(v, n) {
+	var found = straight(v, n);
 	if(!found) {
-		found = fiveOfKind(v);
+		found = fiveOfKind(v, n);
 	}
 	if(!found) {
-		found = fourOfKind(v);
+		found = fourOfKind(v, n);
 	}
 	if(!found) {
-		found = threeOfKind(v);
+		found = threeOfKind(v, n);
 	}
 	if(!found) {
-		found = twoOfKind(v);
+		found = twoOfKind(v, n);
 	}
 	if(!found) {
 		alert("You have rolled nothing! Try your luck again!");
 	}
 };
-var playGame = function() {
+var playGame = function(numberOfSides, numberOfDice) {
 	var player1 = confirm("Player 1, are you ready to play?");
 	var player2 = confirm("Player 2, are you ready to play?");
 	if (player1 && player2) {
@@ -120,14 +120,16 @@ var playGame = function() {
 		}
 		var roll = [];
 		for (var i = 1; i <= 2; i++) {
-			roll[i] = rollDice(6, 5);
+			var n = numberOfSides;
+			var d = numberOfDice;
+			roll[i] = rollDice(n, d);
 	 		console.log(name[i] + ", you have rolled " + roll[i].join(" ") + ".");
 	 		var value = getMatches(roll[i]);
 	 		var v = getLength(value);
-			getAmount(v);
+			getAmount(v, n);
 		}
 	} else {
 		alert("Aw, well, come back when you're ready!");
 	}
 };
-playGame();
+playGame(8, 7);
